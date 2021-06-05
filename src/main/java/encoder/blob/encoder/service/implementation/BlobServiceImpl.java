@@ -1,5 +1,6 @@
 package encoder.blob.encoder.service.implementation;
 
+import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +62,8 @@ public class BlobServiceImpl implements BlobService {
         String urlVideo = blobClient.getBlobUrl();
 
         // Upload the blob
-        blobClient.upload(content, length);
+        InputStream bufferedIn = new BufferedInputStream(content);
+        blobClient.upload(bufferedIn, length, true );
         
         return urlVideo;
     }

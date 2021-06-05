@@ -34,8 +34,8 @@ public class BlobController {
     @PostMapping("/storeVideo")
     public ResponseEntity<Object> uploadVideo(@RequestParam("file") MultipartFile file) throws IOException {
 
-        String url = blobService.storeVideo(file.getName(), file.getInputStream(), file.getSize());
-        
+        String url = blobService.storeVideo(file.getOriginalFilename(), file.getInputStream(), file.getSize());
+
         return ResponseEntity.ok(new Object() {
             public final boolean success = true;
             public final String urlvideo = url;
