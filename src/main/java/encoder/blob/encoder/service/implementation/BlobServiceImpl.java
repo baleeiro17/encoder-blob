@@ -57,8 +57,6 @@ public class BlobServiceImpl implements BlobService {
 
         BlobClient blobClient = containerClient().getBlobClient(filename);
 
-        // System.out.println("\nUploading to Blob storage as blob:\n\t" + blobClient.getBlobUrl());
-
         String urlVideo = blobClient.getBlobUrl();
 
         // Upload the blob
